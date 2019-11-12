@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <!--  -->
+
+</head>
+<body class="body">
+<div>
+    <div class="hello">欢迎来到广告轮播系统</div>
+    <form class="form" action="/login" method="post" autocomplete="off">
+        <div class="font">
+            登陆
+            <hr>
+        </div>
+        <div>
+            <input class="input" type="text" name="userName" required="required"
+                   th:value="${userName}" placeholder="用户名">
+        </div>
+        <div>
+            <input class="input" type="password" name="password" required="required"
+                   th:value="${password}" placeholder="密码">
+        </div>
+        <input class="button" type="submit"/><br>
+    </form>
+
+</div>
+
+</body>
+</html>

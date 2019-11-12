@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+    <script th:src="@{/layui/layui.js}"></script>
+</head>
+<body>
+<form class="layui-form" action="">
+<!--
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择</label>
+        <div class="layui-input-inline">
+            <select name="quiz1">
+                <option value="">请选择省</option>
+                <option value="浙江">浙江省</option>
+                <option value="你的工号">江西省</option>
+                <option value="你最喜欢的老师">福建省</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select name="quiz2">
+                <option value="">请选择市</option>
+                <option value="杭州">杭州</option>
+                <option value="宁波" disabled="">宁波</option>
+                <option value="温州">温州</option>
+                <option value="温州">台州</option>
+                <option value="温州">绍兴</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select name="quiz3">
+                <option value="">请选择县/区</option>
+                <option value="西湖区">西湖区</option>
+                <option value="余杭区">余杭区</option>
+                <option value="拱墅区">临安市</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select name="quiz3">
+                <option value="">请选择街道</option>
+                <option value="科学大道">科学大道</option>
+                <option value="黄埔大道">黄埔大道</option>
+            </select>
+        </div>
+    </div>
+-->
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>省</th>
+            <th>市</th>
+            <th>区</th>
+            <th>街道</th>
+        </tr>
+        </thead>
+        <tbody>
+  <!--      <tr>
+            <td>广东省</td>
+            <td>广州市</td>
+            <td>天河区</td>
+            <td>科学大道</td>
+        </tr>-->
+        <tr  th:each="area,iterStat : ${areaModelList}">
+            <th scope="row" th:text="${area.province}">1</th>
+            <td th:text="${area.city}">Mark</td>
+            <td th:text="${area.district}">Otto</td>
+            <td th:text="${area.street}">@mdo</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
