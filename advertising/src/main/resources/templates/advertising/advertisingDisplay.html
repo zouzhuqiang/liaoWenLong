@@ -9,7 +9,6 @@
 <body>
 <form class="layui-form" action="">
 
-    <a	class="layui-btn layui-btn-normal" th:href="@{/AreaController/toAddArea}">添加</a>
     <table class="layui-table">
         <colgroup>
             <col width="150">
@@ -18,20 +17,17 @@
         </colgroup>
         <thead>
         <tr>
-            <th>省</th>
-            <th>市</th>
-            <th>区</th>
-            <th>街道</th>
-            <th>操作</th>
+            <th>名称</th>
+            <th>客户</th>
+            <th colspan="2">操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="area,iterStat : ${areaList}">
-            <th scope="row" th:text="${area.province}">1</th>
-            <td th:text="${area.city}">Mark</td>
-            <td th:text="${area.district}">Otto</td>
-            <td th:text="${area.street}">@mdo</td>
-            <td><a th:href="@{/AreaController/areaDelete(id=${area.id})}">删除</a> </td>
+        <tr  th:each="advertising,iterStat : ${advertisingList}">
+            <td th:text="${advertising.source}">Mark</td>
+            <td th:text="${advertising.client}">Otto</td>
+            <td><a th:href="@{/AdvertisingController/advertisingDisplayOne(id=${advertising.id})}">查看</a> </td>
+            <td><a th:href="@{/AdvertisingController/advertisingDelete(id=${advertising.id})}">删除</a> </td>
         </tr>
         </tbody>
     </table>

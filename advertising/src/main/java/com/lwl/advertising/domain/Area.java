@@ -2,8 +2,10 @@ package com.lwl.advertising.domain;
 
 public class Area {
     private int id;
-    private String name;
-    private int pid;
+    private String province;
+    private String city;
+    private String district;
+    private String street;
 
     public int getId() {
         return id;
@@ -13,19 +15,35 @@ public class Area {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProvince() {
+        return province;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public int getPid() {
-        return pid;
+    public String getCity() {
+        return city;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 }

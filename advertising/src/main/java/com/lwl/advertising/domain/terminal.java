@@ -1,11 +1,14 @@
 package com.lwl.advertising.domain;
 
-public class terminal {
+public class Terminal {
 
     private int id;
     private int number;
     private String name;
-    private int areaId;
+    private String province;
+    private String city;
+    private String district;
+    private String street;
 
     public int getId() {
         return id;
@@ -31,11 +34,35 @@ public class terminal {
         this.name = name;
     }
 
-    public int getAreaId() {
-        return areaId;
+    public String getProvince() {
+        return province;
     }
 
-    public void setAreaId(int areaId) {
-        this.areaId = areaId;
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 }

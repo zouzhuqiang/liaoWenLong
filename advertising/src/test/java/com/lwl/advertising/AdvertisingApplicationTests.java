@@ -1,6 +1,7 @@
 package com.lwl.advertising;
 
-import com.lwl.advertising.domain.model.AreaModel;
+import com.lwl.advertising.domain.Advertising;
+import com.lwl.advertising.mapper.AdvertisingMapper;
 import com.lwl.advertising.mapper.AreaMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +13,16 @@ import java.util.List;
 class AdvertisingApplicationTests {
 
     @Autowired
-    private AreaMapper areaMapper;
+    private AdvertisingMapper advertisingMapper;
     @Test
     void contextLoads() {
     }
     @Test
-    void testArea(){
-        List<AreaModel> areaModelList = areaMapper.findAll();
-        for(int i=0;i<areaModelList.size();i++){
-            AreaModel areaModel = areaModelList.get(i);
-            System.out.println("省："+areaModel.getProvince());
-            System.out.println("市"+areaModel.getCity());
-            System.out.println("区"+areaModel.getDistrict());
-            System.out.println("街道"+areaModel.getStreet());
-        }
+    void test(){
+       List<Advertising> advertisingList = advertisingMapper.findAll();
+       for(int i=0;i<advertisingList.size();i++){
+           Advertising advertising = advertisingList.get(i);
+           System.out.println(advertising.getId()+advertising.getSource()+advertising.getClient());
+       }
     }
 }

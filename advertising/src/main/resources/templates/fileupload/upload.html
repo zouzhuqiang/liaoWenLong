@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<h1>Spring Boot file upload example</h1>
+<h1>广告上传</h1>
 
-<form method="POST" action="/upload" enctype="multipart/form-data">
+<form method="POST" action="/UploadController/upload" enctype="multipart/form-data">
     <input type="file" name="file" /><br/><br/>
+    <input type="text" name="client" placeholder="客户"/><br/>
     <input type="submit" value="Submit" />
 </form>
 

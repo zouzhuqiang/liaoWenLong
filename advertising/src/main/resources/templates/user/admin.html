@@ -34,16 +34,20 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item">
+              <!--  <li class="layui-nav-item">
                     <a th:href="@{/AreaController/areaDisplay}" target="contentFrame">区域</a>
-                </li>
+                </li>-->
                 <li class="layui-nav-item">
-                    <a th:href="@{/complainController/toClientComplainManage(userName=${user.getUserName()},state='未完成')}"
+                    <a th:href="@{/TerminalController/terminalDisplay}"
                        target="contentFrame">终端</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a th:href="@{/complainController/toClientComplainManage(userName=${user.getUserName()},state='已完成')}"
+                    <a th:href="@{/AdvertisingController/advertisingDisplay}"
                        target="contentFrame">广告</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/UploadController/toUpload}"
+                       target="contentFrame">广告上传</a>
                 </li>
             </ul>
         </div>
