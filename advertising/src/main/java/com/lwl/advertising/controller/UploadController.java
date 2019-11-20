@@ -24,10 +24,10 @@ public class UploadController {
     @Autowired
     private AdvertisingService advertisingService;
 
-    @GetMapping("/toUpload")
+  /*  @GetMapping("/toUpload")
     public String index() {
         return "fileupload/upload";
-    }
+    }*/
 
     @PostMapping("/upload") // //new annotation since 4.3
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
@@ -45,17 +45,16 @@ public class UploadController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             advertisingService.advertisingAdd(file.getOriginalFilename(),client);
-            System.out.println(file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return "redirect:/UploadController/uploadStatus";
+        return "redirect:/AdvertisingController/advertisingDisplay";
+       // return "redirect:/UploadController/uploadStatus";
     }
 
-    @GetMapping("/uploadStatus")
+   /* @GetMapping("/uploadStatus")
     public String uploadStatus() {
         return "fileupload/uploadStatus";
     }
-
+*/
 }

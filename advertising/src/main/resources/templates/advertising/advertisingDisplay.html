@@ -7,8 +7,11 @@
     <script th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
-<form class="layui-form" action="">
-
+<form class="layui-form" method="POST" action="/UploadController/upload" enctype="multipart/form-data">
+    <input style="height:30px" type="file" name="file" />
+    <input style="height:30px" type="text" name="client" placeholder="所属客户"/>
+    <input style="height:30px" type="submit" value="提交" /><br/>
+</form>
     <table class="layui-table">
         <colgroup>
             <col width="150">
@@ -26,12 +29,15 @@
         <tr  th:each="advertising,iterStat : ${advertisingList}">
             <td th:text="${advertising.source}">Mark</td>
             <td th:text="${advertising.client}">Otto</td>
-            <td><a th:href="@{/AdvertisingController/advertisingDisplayOne(id=${advertising.id})}">查看</a> </td>
-            <td><a th:href="@{/AdvertisingController/advertisingDelete(id=${advertising.id})}">删除</a> </td>
+            <td>
+                <a style="" th:href="@{/AdvertisingController/advertisingDisplayOne(id=${advertising.id})}">查看</a>
+                <a th:href="@{/AdvertisingController/toDistribution(advertisingId=${advertising.id})}">分发</a>
+                <a th:href="@{/AdvertisingController/advertisingDelete(id=${advertising.id})}">删除</a>
+            </td>
         </tr>
         </tbody>
     </table>
-</form>
+
 <script>
     layui.use('form', function(){
         var form = layui.form;

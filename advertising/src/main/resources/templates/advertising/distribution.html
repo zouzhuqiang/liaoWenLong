@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+    <script th:src="@{/layui/layui.js}"></script>
+</head>
+<body>
+<form  class="layui-form" method="get" action="/AdvertisingController/distribution">
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择终端:</label>
+        <input class="layui-btn layui-btn-normal" type="submit"/>
+        <input type="text" name="advertisingId" th:value="${advertisingId}" style="display: none"/>
+        <div class="layui-input-block" th:each="terminal,iterStat:${terminalList}">
+            <input type="radio" name="terminalId" th:value="${terminal.id}" th:title="${terminal.name}"><br/>
+        </div>
+    </div>
+</form>
+<!--<form method="get" action="/AdvertisingController/distribution">
+    <label>选择终端：</label>
+    <input
+    <br/>
+    <div th:each="terminal,iterStat:${terminalList}">
+         <input type="radio" name="terminalId" th:value="${terminal.id}" th:text="${terminal.name}"/><br/>
+    </div>
+</form>-->
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

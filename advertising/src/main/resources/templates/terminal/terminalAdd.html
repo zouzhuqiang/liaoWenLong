@@ -7,11 +7,11 @@
     <script th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
-<form class="layui-form" action="/TerminalController/terminalAdd" method="get">
+<form class="layui-form" action="/Terminal/add" method="get">
     <div class="layui-form-item">
         <label class="layui-form-label">编号</label>
         <div class="layui-input-block">
-            <input type="text" name="number" required  lay-verify="required" placeholder="请输入编号" autocomplete="off" class="layui-input">
+            <input type="text" name="id" required  lay-verify="required" placeholder="请输入编号" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -21,27 +21,13 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">省</label>
+        <label class="layui-form-label">所在地区</label>
         <div class="layui-input-block">
-            <input type="text" name="province" required  lay-verify="required" placeholder="请输入省" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">市</label>
-        <div class="layui-input-block">
-            <input type="text" name="city" required  lay-verify="required" placeholder="请输入市" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">区/县</label>
-        <div class="layui-input-block">
-            <input type="text" name="district" required  lay-verify="required" placeholder="请输入区/县" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">街道</label>
-        <div class="layui-input-block">
-            <input type="text" name="street" required  lay-verify="required" placeholder="街道" autocomplete="off" class="layui-input">
+            <select name="areaId" lay-verify="required">
+                <option>选择区域</option>
+                <option  th:each="area,iterStat : ${areaList}" th:text="${area.province+area.city+
+                area.district+area.district}" th:value="${area.id}"></option>
+            </select>
         </div>
     </div>
     <div class="layui-form-item">

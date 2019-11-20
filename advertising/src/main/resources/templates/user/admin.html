@@ -18,14 +18,6 @@
             <li class="layui-nav-item">
                 <img th:src="@{/image/user.jpg}" class="layui-nav-img">
                 <span th:text="*{user.getName()}">hah</span>
-        <!--        <dl class="layui-nav-child">
-                    <dd>
-                        <a th:href="@{/userController/toMessage(userName=${user.getUserName()})}" target="contentFrame">个人信息</a>
-                    </dd>
-                    <dd>
-                        <a  th:href="@{/userController/toUpdateMessage(userName=${user.getUserName()})}" target="contentFrame">修改个人信息</a>
-                    </dd>
-                </dl>-->
             </li>
             <li class="layui-nav-item"><a th:href="@{/userController/toExit}" >退出</a></li>
         </ul>
@@ -34,38 +26,33 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
-              <!--  <li class="layui-nav-item">
-                    <a th:href="@{/AreaController/areaDisplay}" target="contentFrame">区域</a>
-                </li>-->
                 <li class="layui-nav-item">
-                    <a th:href="@{/TerminalController/terminalDisplay}"
+                    <a th:href="@{/AreaController/areaDisplay}" target="contentFrame">区域</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/Terminal/display/all}"
                        target="contentFrame">终端</a>
                 </li>
                 <li class="layui-nav-item">
                     <a th:href="@{/AdvertisingController/advertisingDisplay}"
                        target="contentFrame">广告</a>
                 </li>
-                <li class="layui-nav-item">
+           <!--     <li class="layui-nav-item">
                     <a th:href="@{/UploadController/toUpload}"
                        target="contentFrame">广告上传</a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
     <!-- 内容主体区域 -->
- <!--   <div class="layui-body body">
-        <iframe class="iframe" name="contentFrame"
-                th:src="@{/userController/toMainPage(userName=${user.getUserName()})}"></iframe>
-    </div>-->
     <div class="layui-body">
         <div>
             <iframe name="contentFrame" class="my-iframe"></iframe>
         </div>
     </div>
-    <!-- 底部固定区域 -->
+<!--    &lt;!&ndash; 底部固定区域 &ndash;&gt;
     <div class="layui-footer">
-        xxx公司电话号码   12345678911
-    </div>
+    </div>-->
 </div>
 
 <script>

@@ -5,6 +5,7 @@ public class Advertising {
     private int id;
     private String source;
     private String client;
+    private String format;
 
     public int getId() {
         return id;
@@ -28,5 +29,13 @@ public class Advertising {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 }

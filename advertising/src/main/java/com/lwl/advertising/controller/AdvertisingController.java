@@ -27,4 +27,17 @@ public class AdvertisingController {
     public String advertisingDisplayOne(Model model,int id){
         return advertisingService.advertisingDisplayOne(model,id);
     }
+    @RequestMapping("/toDistribution")
+    public String toDistribution(Model model,Integer advertisingId){
+        return advertisingService.toDistribution(model,advertisingId);
+    }
+
+
+    @RequestMapping("/distribution")
+    public String distribution(Integer advertisingId,Integer terminalId){
+        System.out.println(advertisingId);
+        System.out.println(terminalId);
+           return advertisingService.distribution(advertisingId,terminalId);
+    }
+
 }

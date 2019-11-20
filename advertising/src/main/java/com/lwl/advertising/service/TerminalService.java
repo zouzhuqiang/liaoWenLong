@@ -11,5 +11,8 @@ public interface TerminalService {
     String terminalDelete(int id);
 
     //增加终端
-    String terminalAdd(int number,String name,String province,String city,String district,String street);
+    String terminalAdd(int id,String name,int areaId);
+
+    //展示终端的广告
+    String displayOne(int id,Model model);
 }

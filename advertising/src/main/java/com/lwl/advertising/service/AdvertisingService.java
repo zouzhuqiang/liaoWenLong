@@ -10,4 +10,9 @@ public interface AdvertisingService {
     String advertisingDelete(int id);
 
     String advertisingDisplayOne(Model model,int id);
+
+    String toDistribution(Model model,Integer advertisingId);
+
+    String distribution(int advertisingId,int terminalId);
+
 }

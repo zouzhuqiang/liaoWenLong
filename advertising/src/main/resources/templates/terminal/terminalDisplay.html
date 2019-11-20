@@ -8,45 +8,8 @@
 </head>
 <body>
 <form class="layui-form" action="">
-<!--
-    <div class="layui-form-item">
-        <label class="layui-form-label">选择</label>
-        <div class="layui-input-inline">
-            <select name="quiz1">
-                <option value="">请选择省</option>
-                <option value="浙江">浙江省</option>
-                <option value="你的工号">江西省</option>
-                <option value="你最喜欢的老师">福建省</option>
-            </select>
-        </div>
-        <div class="layui-input-inline">
-            <select name="quiz2">
-                <option value="">请选择市</option>
-                <option value="杭州">杭州</option>
-                <option value="宁波" disabled="">宁波</option>
-                <option value="温州">温州</option>
-                <option value="温州">台州</option>
-                <option value="温州">绍兴</option>
-            </select>
-        </div>
-        <div class="layui-input-inline">
-            <select name="quiz3">
-                <option value="">请选择县/区</option>
-                <option value="西湖区">西湖区</option>
-                <option value="余杭区">余杭区</option>
-                <option value="拱墅区">临安市</option>
-            </select>
-        </div>
-        <div class="layui-input-inline">
-            <select name="quiz3">
-                <option value="">请选择街道</option>
-                <option value="科学大道">科学大道</option>
-                <option value="黄埔大道">黄埔大道</option>
-            </select>
-        </div>
-    </div>
--->
-    <a	class="layui-btn layui-btn-normal" th:href="@{/TerminalController/toAddTerminal}">添加</a>
+
+    <a	class="layui-btn layui-btn-normal" th:href="@{/Terminal/to/add}">添加</a>
     <table class="layui-table">
         <colgroup>
             <col width="150">
@@ -55,24 +18,21 @@
         </colgroup>
         <thead>
         <tr>
-            <th>省</th>
-            <th>市</th>
-            <th>区</th>
-            <th>街道</th>
             <th>编号</th>
             <th>名称</th>
+            <th>所在区域</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="terminal,iterStat : ${terminalList}">
-            <td th:text="${terminal.province}">1</td>
-            <td th:text="${terminal.city}">Mark</td>
-            <td th:text="${terminal.district}">Otto</td>
-            <td th:text="${terminal.street}">@mdo</td>
-            <td th:text="${terminal.number}">@mdo</td>
+        <tr  th:each="terminal,iterStat : ${terminalModelList}">
+            <td th:text="${terminal.id}">@mdo</td>
             <td th:text="${terminal.name}">@mdo</td>
-            <td><a th:href="@{/TerminalController/terminalDelete(id=${terminal.id})}">删除</a> </td>
+            <td th:text="${terminal.province+terminal.city+terminal.district+terminal.street}">1</td>
+            <td>
+                <a th:href="@{/Terminal/display/one(id=${terminal.id})}">查看广告</a>
+                <a th:href="@{/Terminal/delete(id=${terminal.id})}">删除</a>
+            </td>
         </tr>
         </tbody>
     </table>
