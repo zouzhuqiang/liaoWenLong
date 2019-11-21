@@ -42,7 +42,7 @@
 
 
 <script th:inline="javascript">
-
+//选择列表的广告并查看
     function select(type) {
         var imageList = document.getElementById("imageList");
         var videoList = document.getElementById("videoList");
@@ -70,7 +70,7 @@
         }
 
     }
-
+//全部播放
     function playAll() {
         var v1 = document.getElementById("v1");
         var banner = document.getElementById("banner");
@@ -90,18 +90,18 @@
             }
         }else if(imageList.style.display!='none'&&images[0]!=null){
             v1.pause();
-            var count = 0;
+            var count = -1;
             setInterval(cycle, 2000);  //重复运行cycle函数，周期1000ms
             function cycle() {
                 count++;
                 banner.src = '/file/'+images[count].source;
                 if (count == images.length-1)
-                    count = 0;
+                    count = -1;
 
             }
         }
     }
-
+//列表展示
     function show(type,source) {
         var v1 = document.getElementById("v1");
         var banner = document.getElementById("banner");
