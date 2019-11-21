@@ -1,0 +1,10 @@
+.body{
+    background-image:url("bg/bg1.jpg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size:1080px 500px;
+}
+.hello{
+    margin: auto;
+    font-size: 100px;
+}

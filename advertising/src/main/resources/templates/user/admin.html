@@ -19,7 +19,7 @@
                 <img th:src="@{/image/user.jpg}" class="layui-nav-img">
                 <span th:text="*{user.getName()}">hah</span>
             </li>
-            <li class="layui-nav-item"><a th:href="@{/userController/toExit}" >退出</a></li>
+            <li class="layui-nav-item"><a th:href="@{/exit}" >退出</a></li>
         </ul>
     </div>
     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -27,15 +27,26 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item">
-                    <a th:href="@{/AreaController/areaDisplay}" target="contentFrame">区域</a>
+                    <a th:href="@{/to/first}" target="contentFrame">首页</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a th:href="@{/AreaController/areaDisplay}" target="contentFrame">区域管理</a>
                 </li>
                 <li class="layui-nav-item">
                     <a th:href="@{/Terminal/display/all}"
-                       target="contentFrame">终端</a>
+                       target="contentFrame">终端管理</a>
                 </li>
                 <li class="layui-nav-item">
                     <a th:href="@{/AdvertisingController/advertisingDisplay}"
-                       target="contentFrame">广告</a>
+                       target="contentFrame">广告管理</a>
+                </li>
+              <!--  <li class="layui-nav-item">
+                    <a th:href="@{/AdvertisingController/to/schedule}"
+                       target="contentFrame">排期管理</a>
+                </li>-->
+                <li class="layui-nav-item">
+                    <a th:href="@{/message('userName'=${user.userName})}"
+                       target="contentFrame">用户管理</a>
                 </li>
            <!--     <li class="layui-nav-item">
                     <a th:href="@{/UploadController/toUpload}"
@@ -47,7 +58,7 @@
     <!-- 内容主体区域 -->
     <div class="layui-body">
         <div>
-            <iframe name="contentFrame" class="my-iframe"></iframe>
+            <iframe name="contentFrame" class="my-iframe" th:src="@{/to/first}"></iframe>
         </div>
     </div>
 <!--    &lt;!&ndash; 底部固定区域 &ndash;&gt;

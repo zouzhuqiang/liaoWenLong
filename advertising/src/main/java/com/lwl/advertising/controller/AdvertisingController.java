@@ -1,10 +1,17 @@
 package com.lwl.advertising.controller;
 
+import com.lwl.advertising.domain.Advertising;
+import com.lwl.advertising.domain.Terminal;
+import com.lwl.advertising.domain.model.TerminalModel;
+import com.lwl.advertising.mapper.AdvertisingMapper;
+import com.lwl.advertising.mapper.TerminalMapper;
 import com.lwl.advertising.service.AdvertisingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/AdvertisingController")
@@ -12,6 +19,10 @@ public class AdvertisingController {
 
     @Autowired
     private AdvertisingService advertisingService;
+    @Autowired
+    private TerminalMapper terminalMapper;
+    @Autowired
+    private AdvertisingMapper advertisingMapper;
 
     @RequestMapping("/advertisingDisplay")
     public String advertisingDisplay(Model model){
@@ -35,9 +46,16 @@ public class AdvertisingController {
 
     @RequestMapping("/distribution")
     public String distribution(Integer advertisingId,Integer terminalId){
-        System.out.println(advertisingId);
-        System.out.println(terminalId);
            return advertisingService.distribution(advertisingId,terminalId);
+    }
+
+    @RequestMapping("/to/schedule")
+    public String toSchedule(Model model){
+        List<TerminalModel> terminalModels = terminalMapper.findAll();
+        List<Advertising> advertisings = advertisingMapper.findAll();
+        model.addAttribute("terminalModels",terminalModels);
+        model.addAttribute("advertisings",advertisings);
+        return "/advertising/schedule";
     }
 
 }
