@@ -26,7 +26,7 @@
             <select name="areaId" lay-verify="required">
                 <option>选择区域</option>
                 <option  th:each="area,iterStat : ${areaList}" th:text="${area.province+area.city+
-                area.district+area.district}" th:value="${area.id}"></option>
+                area.district+area.street}" th:value="${area.id}"></option>
             </select>
         </div>
     </div>
